@@ -1,19 +1,22 @@
 import os
 
 class script(object):
-    # ENVIRONMENTAL VARIABLES (Yahan se data uthayega)
+    # ENVIRONMENTAL VARIABLES
     START_PIC = os.environ.get("START_PIC", "https://i.postimg.cc/j2nLk6yb/file-000000009aec7206bfa30465434fd82a.png")
-    ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "AmarSingh820") # Bina @ ke username
-    CHANNEL_LINK = os.environ.get("CHANNEL_LINK", "https://t.me/YourChannelLink")
+    ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "BlackVexX") 
+    CHANNEL_LINK = os.environ.get("CHANNEL_LINK", "https://t.me/YourChannelLink") # Apna Channel Link yahan daalna settings me
     UPI_ID = os.environ.get("UPI_ID", "amar@ybl")
     QR_CODE = os.environ.get("QR_CODE", "https://graph.org/file/your-qr-code.jpg")
+    APP_LINK = os.environ.get("APP_LINK", "https://t.me/YourChannelLink") # Yahan App ka link aayega
 
     # START MESSAGES
-    START_TXT = """<b><u>🍿 ᴘᴏᴘᴄᴏʀɴ ᴘʟᴀʏ 🍿</u></b>
+    START_TXT = f"""<b><u>🍿 ᴘᴏᴘᴄᴏʀɴ ᴘʟᴀʏ 🍿</u></b>
 
-<b>ʜᴇʏ {}, {}</b>
+<b>ʜᴇʏ {{}}, {{}}</b>
 
-<b>🤖 ɪ ᴀᴍ <a href=https://t.me/{}>{}</a>, ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ.</b>
+<b>🤖 ɪ ᴀᴍ <a href=https://t.me/{{}}>{{}}</a>, ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ.</b>
+
+🎬 <b><a href='{APP_LINK}'>Download PopcornPlay Movie App & Watch All Movies For Free</a></b> 🎬
 """
 
     GSTART_TXT = """<b>🍿 ᴘᴏᴘᴄᴏʀɴ ᴘʟᴀʏ 🍿</b>
@@ -149,7 +152,7 @@ Nᴀᴍᴇ - {}
 
 <blockquote>👇 नीचे दिए गए विकल्पों में से movie के नाम की सही spelling चुनें</blockquote>"""
 
-
+    # Delete Message Time yahan update hoga jab hum info.py change karenge
     DEL_MSG = """⚠️ ᴛʜɪꜱ ᴍᴏᴠɪᴇ ꜰɪʟᴇ/ᴠɪᴅᴇᴏ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ <b><u><code>{}</code></u></b>
 
 <blockquote expandable><b><i>ᴘʟᴇᴀꜱᴇ ꜰᴏʀᴡᴀʀᴅ ᴛʜɪꜱ ꜰɪʟᴇ ᴛᴏ ꜱᴏᴍᴇᴡʜᴇʀᴇ ᴇʟꜱᴇ & ꜱᴛᴀʀᴛ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴛʜᴇʀᴇ</i></b></blockquote>"""
@@ -230,7 +233,8 @@ Nᴀᴍᴇ : {}
 
 Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
-    CAPTION = f"""<b><a href="{CHANNEL_LINK}">{{file_name}}</a></b>\n\n<b>⚜️ Powered By : <a href="{CHANNEL_LINK}">[ iP Update ]</a></b>"""
+    # Yahan CAPTION change kiya hai
+    CAPTION = f"""<b><a href="{CHANNEL_LINK}">{{file_name}}</a></b>\n\n<b>⚜️ Powered By : <a href="{CHANNEL_LINK}">[ Popcorn Play ]</a></b>"""
 
     
     MOVIE_UPDATE_NOTIFY_TXT = """
