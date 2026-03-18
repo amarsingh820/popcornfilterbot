@@ -1,6 +1,6 @@
-
 import pytz
 import datetime
+import os
 from Script import script 
 from info import *
 from utils import get_seconds, temp
@@ -10,6 +10,10 @@ from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong
 from pyrogram.types import *
 
+# --- ENVIRONMENTAL VARIABLES (Settings se data uthayega) ---
+ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "AmarSingh820") 
+PREMIUM_PIC = os.environ.get("START_PIC", "https://i.postimg.cc/j2nLk6yb/file-000000009aec7206bfa30465434fd82a.png")
+# -----------------------------------------------------------
 
 @Client.on_message(filters.command("remove_premium") & filters.user(ADMINS))
 async def remove_premium(client, message):
@@ -56,7 +60,7 @@ async def myplan(client, message):
             )
 
             await message.reply_photo(
-                photo=SUBSCRIPTION, 
+                photo=PREMIUM_PIC, 
                 caption=caption,
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton("🔥 ᴇxᴛᴇɴᴅ ᴘʟᴀɴ", callback_data="premium_info")]]
@@ -64,7 +68,7 @@ async def myplan(client, message):
             )
         else:
             await message.reply_photo(
-                photo="https://i.ibb.co/gMrpRQWP/photo-2025-07-09-05-21-32-7524948058832896004.jpg", 
+                photo=PREMIUM_PIC, 
                 caption=(
                     f"<b>ʜᴇʏ {user},\n\n"
                     f"ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀɴ ᴀᴄᴛɪᴠᴇ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴ.\n"
@@ -180,7 +184,7 @@ async def plan(client, message):
             InlineKeyboardButton('🚫 ᴄʟᴏꜱᴇ 🚫', callback_data='close_data')
         ]]
     msg = await message.reply_photo(
-        photo="https://graph.org/file/86da2027469565b5873d6.jpg",
+        photo=PREMIUM_PIC,
         caption=script.BPREMIUM_TXT,
         reply_markup=InlineKeyboardMarkup(btn)
     )
@@ -263,5 +267,3 @@ async def successful_premium_payment(client, message):
     except Exception as e:
         print(f"Error Processing Premium Payment: {e}")
         await message.reply("✅ Thank You For Your Payment! (Error Logging Details)")
-
-
