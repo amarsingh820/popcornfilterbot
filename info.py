@@ -157,10 +157,10 @@ SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MELCOW_NEW_USERS = is_enabled((environ.get('MELCOW_NEW_USERS', "False")), False)
 PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 PM_SEARCH = bool(environ.get('PM_SEARCH', True))
-EMOJI_MODE = bool(environ.get('EMOJI_MODE', False))
+EMOJI_MODE = bool(environ.get('EMOJI_MODE', True))
 BUTTON_MODE = is_enabled((environ.get('BUTTON_MODE', "False")), False)
-STREAM_MODE = bool(environ.get('STREAM_MODE', False))
-PREMIUM_STREAM_MODE = bool(environ.get('PREMIUM_STREAM_MODE', False))
+STREAM_MODE = bool(environ.get('STREAM_MODE', True))
+PREMIUM_STREAM_MODE = bool(environ.get('PREMIUM_STREAM_MODE', True))
 
 
 # ============================
