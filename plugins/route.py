@@ -3,17 +3,13 @@ import re
 import math
 import logging
 import secrets
-import time
 import mimetypes
 from aiohttp.http_exceptions import BadStatusLine
-from dreamxbotz.Bot import multi_clients, work_loads, dreamxbotz
+from dreamxbotz.Bot import multi_clients, work_loads
 from dreamxbotz.server.exceptions import FIleNotFound, InvalidHash
-from dreamxbotz.zzint import StartTime, __version__
 from dreamxbotz.util.custom_dl import ByteStreamer
-from dreamxbotz.util.time_format import get_readable_time
 from dreamxbotz.util.render_template import render_page
 from info import *
-
 
 routes = web.RouteTableDef()
 
@@ -23,10 +19,11 @@ async def favicon_route_handler(request):
 
 @routes.get("/", allow_head=True)
 async def root_route_handler(request):
-    return web.json_response("dreamxbotz")
+    return web.json_response("Popcorn Play Server is Running...")
 
+# --- WATCH ONLINE ROUTE (HTML Page) ---
 @routes.get(r"/watch/{path:\S+}", allow_head=True)
-async def stream_handler(request: web.Request):
+async def watch_handler(request: web.Request):
     try:
         path = request.match_info["path"]
         match = re.search(r"^([a-zA-Z0-9_-]{6})(\d+)$", path)
@@ -36,7 +33,10 @@ async def stream_handler(request: web.Request):
         else:
             id = int(re.search(r"(\d+)(?:\/\S+)?", path).group(1))
             secure_hash = request.rel_url.query.get("hash")
+        
+        # Ye line HTML page return karegi (Netflix wala design)
         return web.Response(text=await render_page(id, secure_hash), content_type='text/html')
+        
     except InvalidHash as e:
         raise web.HTTPForbidden(text=e.message)
     except FIleNotFound as e:
@@ -47,8 +47,9 @@ async def stream_handler(request: web.Request):
         logging.critical(e.with_traceback(None))
         raise web.HTTPInternalServerError(text=str(e))
 
+# --- DOWNLOAD ROUTE (Direct File) ---
 @routes.get(r"/{path:\S+}", allow_head=True)
-async def stream_handler(request: web.Request):
+async def download_handler(request: web.Request):
     try:
         path = request.match_info["path"]
         match = re.search(r"^([a-zA-Z0-9_-]{6})(\d+)$", path)
@@ -58,7 +59,10 @@ async def stream_handler(request: web.Request):
         else:
             id = int(re.search(r"(\d+)(?:\/\S+)?", path).group(1))
             secure_hash = request.rel_url.query.get("hash")
+        
+        # Ye line file download start karegi
         return await media_streamer(request, id, secure_hash)
+        
     except InvalidHash as e:
         raise web.HTTPForbidden(text=e.message)
     except FIleNotFound as e:
@@ -87,9 +91,8 @@ async def media_streamer(request: web.Request, id: int, secure_hash: str):
         logging.debug(f"Creating new ByteStreamer object for client {index}")
         tg_connect = ByteStreamer(faster_client)
         class_cache[faster_client] = tg_connect
-    logging.debug("before calling get_file_properties")
+    
     file_id = await tg_connect.get_file_properties(id)
-    logging.debug("after calling get_file_properties")
     
     if file_id.unique_id[:6] != secure_hash:
         logging.debug(f"Invalid hash for message with ID {id}")
