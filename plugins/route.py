@@ -21,7 +21,7 @@ async def favicon_route_handler(request):
 async def root_route_handler(request):
     return web.json_response("Popcorn Play Server is Running...")
 
-# --- WATCH ONLINE ROUTE (HTML Page) ---
+# --- YAHAN DEKHO: Ye WATCH wala rasta hai (HTML Page) ---
 @routes.get(r"/watch/{path:\S+}", allow_head=True)
 async def watch_handler(request: web.Request):
     try:
@@ -34,7 +34,7 @@ async def watch_handler(request: web.Request):
             id = int(re.search(r"(\d+)(?:\/\S+)?", path).group(1))
             secure_hash = request.rel_url.query.get("hash")
         
-        # Ye line HTML page return karegi (Netflix wala design)
+        # Ye Render Page call karega (Netflix Design)
         return web.Response(text=await render_page(id, secure_hash), content_type='text/html')
         
     except InvalidHash as e:
@@ -47,7 +47,7 @@ async def watch_handler(request: web.Request):
         logging.critical(e.with_traceback(None))
         raise web.HTTPInternalServerError(text=str(e))
 
-# --- DOWNLOAD ROUTE (Direct File) ---
+# --- YAHAN DEKHO: Ye DOWNLOAD wala rasta hai ---
 @routes.get(r"/{path:\S+}", allow_head=True)
 async def download_handler(request: web.Request):
     try:
@@ -60,7 +60,7 @@ async def download_handler(request: web.Request):
             id = int(re.search(r"(\d+)(?:\/\S+)?", path).group(1))
             secure_hash = request.rel_url.query.get("hash")
         
-        # Ye line file download start karegi
+        # Ye Download start karega
         return await media_streamer(request, id, secure_hash)
         
     except InvalidHash as e:
