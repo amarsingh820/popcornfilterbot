@@ -1395,12 +1395,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
             username = query.from_user.mention
             log_msg = await client.send_cached_media(chat_id=BIN_CHANNEL, file_id=file_id,)
             fileName = {quote_plus(get_name(log_msg))}
+            
+            # --- FIXED SECTION ---
+            # Correct link generation logic
+            # Stream Link -> /watch/ route (HTML Page)
             dreamx_stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+            # Download Link -> root route (Direct File)
             dreamx_download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+            
             await query.answer(MSG_ALRT)
             await asyncio.sleep(1)
             await log_msg.reply_text(
-                text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
+                text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {get_name(log_msg)}",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=dreamx_download),  # we download Link
@@ -1410,7 +1416,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=InlineKeyboardMarkup([
                     [
                         InlineKeyboardButton("🚀 Download ", url=dreamx_download),
-                        InlineKeyboardButton('🖥️ Watch ', url=dreamx_stream)
+                        InlineKeyboardButton('🖥️ Watch Online 🖥️', url=dreamx_stream)
                     ],
                     [
                         InlineKeyboardButton('📌 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📌', url=UPDATE_CHNL_LNK)
@@ -1780,7 +1786,7 @@ async def auto_filter(client, msg, spoll=False):
                         continue
                     else:
                         search = search + x + " "
-                search = re.sub(r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|bro|bruh|broh|helo|that|find|dubbed|link|venum|iruka|pannunga|pannungga|anuppunga|anupunga|anuppungga|anupungga|film|undo|kitti|kitty|tharu|kittumo|kittum|movie|any(one)|with\ssubtitle(s)?)", "", search, flags=re.IGNORECASE)
+                search = re.sub(r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|bro|bruh|broh|helo|that|find|dubbed|link|venum|iruka|pannunga|pannungga|anuppunga|anupunga|anuppungga|anupungga|anupungga|film|undo|kitti|kitty|tharu|kittumo|kittum|movie|any(one)|with\ssubtitle(s)?)", "", search, flags=re.IGNORECASE)
                 search = re.sub(r"\s+", " ", search).strip()
                 search = search.replace("-", " ")
                 search = search.replace(":", "")
