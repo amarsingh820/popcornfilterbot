@@ -60,11 +60,8 @@ auth_channels     = environ.get("AUTH_CHANNELS", "-100")
 QR_CODE = environ.get('QR_CODE', 'Your_Qr_Code')
 OWNER_UPI_ID = environ.get('OWNER_UPI_ID', 'amar@ybl')
 
-STAR_PREMIUM_PLANS = {
-    10: "7day",
-    20: "15day",    
+STAR_PREMIUM_PLANS = {    
     40: "1month", 
-    55: "45day",
     75: "60day",
 }
 
