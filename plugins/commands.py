@@ -66,12 +66,11 @@ async def start(client, message):
             InlineKeyboardButton("✅ ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ɢᴇᴛ ꜰɪʟᴇ ✅", url=verifiedfiles),
         ]]
         reply_markup=InlineKeyboardMarkup(btn)
-        dlt=await m.reply_photo(
-            photo=(VERIFY_IMG),
-            caption=msg.format(message.from_user.mention, get_readable_time(TWO_VERIFY_GAP)),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+        dlt=await m.reply_text(
+    text=msg.format(message.from_user.mention),
+    reply_markup=reply_markup,
+    parse_mode=enums.ParseMode.HTML
+)
         await asyncio.sleep(300)
         await dlt.delete()
         return         
