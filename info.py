@@ -95,9 +95,9 @@ LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-100'))
 LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-100'))
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://telegra.ph/file/9ecc5d6e4df5b83424896.jpg")
 
-TUTORIAL = environ.get("TUTORIAL", "https://t.me/BlackVexor")
-TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/BlackVexor")
-TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/BlackVexor")
+TUTORIAL = environ.get("TUTORIAL", "https://t.me/popcornplaymovie/78")
+TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/popcornplaymovie/78")
+TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/popcornplaymovie/78")
 
 SHORTENER_API = environ.get("SHORTENER_API", "2469484d258897da1dc9edaf4face6f466301f39")
 SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", "https://api.gplinks.com")
