@@ -3,7 +3,7 @@ import os
 class script(object):
     # ENVIRONMENTAL VARIABLES
     START_PIC = os.environ.get("START_PIC", "https://i.postimg.cc/j2nLk6yb/file-000000009aec7206bfa30465434fd82a.png")
-    ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "BlackVexX") 
+    ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "@BlackVexor") 
     CHANNEL_LINK = os.environ.get("CHANNEL_LINK", "https://t.me/YourChannelLink") # Apna Channel Link yahan daalna settings me
     UPI_ID = os.environ.get("UPI_ID", "amar@ybl")
     QR_CODE = os.environ.get("QR_CODE", "https://graph.org/file/your-qr-code.jpg")
@@ -287,11 +287,7 @@ sʜᴏᴡɴ ɪɴ : {remaining_seconds} <i>sᴇᴄ</i>⚡️
 
     PREMIUM_TEXT = f"""<blockquote>🎖️ <b>ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs</b></blockquote>
 
-
-◉ 07 ᴅᴀʏꜱ - 10 ₹  / 10 ꜱᴛᴀʀ
-◉ 15 ᴅᴀʏꜱ - 20 ₹  / 20 ꜱᴛᴀʀ
 ◉ 30 ᴅᴀʏꜱ - 40 ₹  / 40 ꜱᴛᴀʀ
-◉ 45 ᴅᴀʏꜱ - 55 ₹  / 55 ꜱᴛᴀʀ
 ◉ 60 ᴅᴀʏꜱ - 75 ₹  / 75 ꜱᴛᴀʀ
 
 •─────•─────────•─────•
@@ -355,11 +351,8 @@ sʜᴏᴡɴ ɪɴ : {remaining_seconds} <i>sᴇᴄ</i>⚡️
     PREPLANS_TXT = f"""<b>👋 ʜᴇʏ {{}},
 
 <blockquote>🎖️ <b>ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴꜱ</b></blockquote>
-
-◉ 07 ᴅᴀʏꜱ - 10 ₹  
-◉ 15 ᴅᴀʏꜱ - 20 ₹  
-◉ 30 ᴅᴀʏꜱ - 40 ₹  
-◉ 45 ᴅᴀʏꜱ - 55 ₹  
+  
+◉ 30 ᴅᴀʏꜱ - 40 ₹    
 ◉ 60 ᴅᴀʏꜱ - 75 ₹  
 
 •─────•─────────•─────•
