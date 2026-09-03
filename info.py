@@ -48,7 +48,7 @@ PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-100'))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-100').split()]
 support_chat_id = environ.get('SUPPORT_CHAT_ID', '-100')
 reqst_channel = environ.get('REQST_CHANNEL_ID', '-100')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/BlackVexX')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/BlackVexor')
 
 # FORCE_SUB 
 auth_req_channels = environ.get("AUTH_REQ_CHANNELS", "-100")
@@ -95,9 +95,9 @@ LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-100'))
 LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-100'))
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://telegra.ph/file/9ecc5d6e4df5b83424896.jpg")
 
-TUTORIAL = environ.get("TUTORIAL", "https://t.me/BlackVexX")
-TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/BlackVexX")
-TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/BlackVexX")
+TUTORIAL = environ.get("TUTORIAL", "https://t.me/BlackVexor")
+TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/BlackVexor")
+TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/BlackVexor")
 
 SHORTENER_API = environ.get("SHORTENER_API", "2469484d258897da1dc9edaf4face6f466301f39")
 SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", "https://api.gplinks.com")
@@ -114,9 +114,9 @@ THREE_VERIFY_GAP = int(environ.get('THREE_VERIFY_GAP', "54000"))
 # ============================
 # Channel & Group Links Configuration
 # ============================
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/BlackVexX')
-OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/BlackVexX')
-UPDATE_CHNL_LNK = environ.get('UPDATE_CHNL_LNK', 'https://t.me/BlackVexX')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/BlackVexor')
+OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/BlackVexor')
+UPDATE_CHNL_LNK = environ.get('UPDATE_CHNL_LNK', 'https://t.me/BlackVexor')
 
 # ============================
 # User Configuration
